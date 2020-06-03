@@ -1,0 +1,25 @@
+version: '2'
+services:
+  jupyter:
+    build:
+      context: ./dockerfile
+      dockerfile: dockerfile-jupyter
+    container_name: jupyter
+    hostname: jupyter
+    ports:
+      - "8888:8888"
+    command: start-notebook.sh --NotebookApp.token=''
+    volumes:
+      - ./jupyter:/home/jovyan/Project
+
+  # mysql:
+  #   image: mysql:8.0
+  #   container_name: mysql
+  #   hostname: mysql
+  #   ports:
+  #     - "3307:3306"
+  #   environment:
+  #     - MYSQL_ROOT_PASSWORD=iii
+  #   volumes:
+  #     - ./mysql_db/mysql_data:/var/lib/mysql
+  #     - ./mysql_db/mysql_init:/docker-entrypoint-initdb.d/
