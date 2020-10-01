@@ -29,7 +29,17 @@ services:
       ## for public use
       #KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:29092,PLAINTEXT_HOST://35.236.145.238:9092
       #advertised.host.name: 35.236.145.238
-  
+  kafdrop:
+    image: obsidiandynamics/kafdrop
+    restart: "no"
+    ports:
+      - "9000:9000"
+    environment:
+      KAFKA_BROKERCONNECT: "kafka:29092"
+    depends_on:
+      - "kafka"
+
+
   # restproxy:
   #   image: confluentinc/cp-kafka-rest:5.2.1
   #   restart: always
