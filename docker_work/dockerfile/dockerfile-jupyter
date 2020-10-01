@@ -1,4 +1,10 @@
-#指定基底文件為jupyter/base-notebook
 FROM yangty10/news_jupyter-tutorial
+MAINTAINER BenLiu
+
 RUN pip install --upgrade pip
-RUN pip install kafka pymysql pymongo matplotlib
+RUN pip install kafka pymysql pymongo matplotlib pydotplus folium geopandas descartes
+#RUN pip install kafka pymysql pymongo
+#RUN pip install Flask 
+#RUN cd /home/jovyan/Project/formal_code
+#Production use
+#CMD ["python", "app.py"]
