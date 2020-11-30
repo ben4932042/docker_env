@@ -53,6 +53,15 @@ services:
   #     - ./mysql_db/mysql_data:/var/lib/mysql
   #     - ./mysql_db/mysql_init:/docker-entrypoint-initdb.d/
      restart: always
+   mongo:
+     image: mongo
+     container_name: mongodb
+     hostname: mongodb
+     restart: always
+     expose:
+       - 6016
+     ports:
+       - "27017:27017"
 
   # pyspark:
   #   image: orozcohsu/pyspark_mongo_ltu:v3  
