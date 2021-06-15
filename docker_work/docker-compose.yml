@@ -41,27 +41,19 @@ services:
   #   restart: always
 
 
-   mysql:
+  mysql:
      image: mysql:5.6
      container_name: mysql
      hostname: mysql
      ports:
        - "3307:3306"
      environment:
-       - MYSQL_ROOT_PASSWORD=iii
-  #   volumes:
-  #     - ./mysql_db/mysql_data:/var/lib/mysql
-  #     - ./mysql_db/mysql_init:/docker-entrypoint-initdb.d/
+       - MYSQL_ROOT_PASSWORD=root
+     volumes:
+       - ./mysql_db/mysql_data:/var/lib/mysql
+       - ./mysql_db/mysql_init:/docker-entrypoint-initdb.d/
      restart: always
-   mongo:
-     image: mongo
-     container_name: mongodb
-     hostname: mongodb
-     restart: always
-     expose:
-       - 6016
-     ports:
-       - "27017:27017"
+
 
   # pyspark:
   #   image: orozcohsu/pyspark_mongo_ltu:v3  
